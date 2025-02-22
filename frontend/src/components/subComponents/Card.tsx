@@ -47,8 +47,8 @@ export default function Card() {
 
     return (
         <div className="inline-flex">        
-        {inputValues.brains.map(items => <div className={` bg-[#ffffff] ml-8 my-10 drop-shadow-xl px-4 h-full rounded-xl w-60 ${items.type === "twitter" ? "w-70" : "w-60"} pb-5`}>
-            <div className={`pt-3 flex ${items.type === "twitter" && "pb-0"} ${items.type === "normal" && "pb-2"} ${items.type === "youtube" && "pb-3"} `}>
+        {inputValues.brains.map((items, index) => <div className={` bg-[#ffffff] ml-8 my-7 drop-shadow-xl px-4 h-full rounded-xl w-60 ${items.type === "twitter" ? "w-70" : "w-60"} pb-5`}>
+            <div key={index} className={`pt-3 flex ${items.type === "twitter" && "pb-0"} ${items.type === "normal" && "pb-2"} ${items.type === "youtube" && "pb-3"} `}>
                 <div className="pt-2  mb-0 flex gap-2 justify-start">
                     {items.type === "normal" && <IoDocumentTextOutline className={`fill-[#666a6e] size-5`} />}
                     {items.type === "youtube" && <ImYoutube className={`fill-[#666a6e] size-5`} />}
@@ -57,10 +57,10 @@ export default function Card() {
                         {items.title}
                     </div>
                     <div className="flex ml-5 justify-end gap-3 -translate-y-2  ">
-                        <button onClick={() => alert("share button clicked")}>
+                        <button onClick={() => alert("share button clicked " + parseInt(index+1))}>
                             <BiSolidShareAlt className={"w-4 h-10 fill-[#666a6e]"} />
                         </button>
-                        <button onClick={() => alert("delete button clicked")}>
+                        <button onClick={() => alert("delete button clicked " + parseInt(index+1))}>
                             <IoTrashOutline className={"w-4 h-10 fill-[#666a6e]"} />
                         </button>
                     </div>
@@ -90,7 +90,7 @@ export default function Card() {
             </div>
 
             <div className="flex gap-3 pt-1 pb-3">
-                {items.tags.map(items => <div className="bg-[#cbccfa] rounded-lg px-2 text-sm text-[#4343dc] text-opacity-80">
+                {items.tags.map((items, index) => <div key={index} className="bg-[#cbccfa] rounded-lg px-2 text-sm text-[#4343dc] text-opacity-80">
                     #{items}
                 </div>)}
                 

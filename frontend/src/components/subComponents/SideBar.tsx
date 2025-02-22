@@ -1,5 +1,4 @@
 import { LuBrain } from "react-icons/lu";
-import axios from "axios";
 import { HiOutlineDocumentText } from "react-icons/hi2";
 import { SlSocialTwitter } from "react-icons/sl";
 import { sideBarValue } from "../../store/sidebarStates";

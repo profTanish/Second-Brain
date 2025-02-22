@@ -1,5 +1,6 @@
 import SideBar from "./subComponents/SideBar"
 import Card from "./subComponents/Card"
+import NavBar from "./NavBar"
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
             <SideBar  />
         </div>
         <div className="col-span-10">
+          <NavBar/>
             <Card/>
         </div>
     </div>
