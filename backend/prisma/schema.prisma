@@ -23,9 +23,10 @@ model User {
 
 model Brain {
   id        Int     @id @default(autoincrement())
+  type      String
   title     String
   subtitle  String
-  discription String
+  discription String?
   link      String
   tags      String[]
   createdAt DateTime @default(now())

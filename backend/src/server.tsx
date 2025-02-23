@@ -6,6 +6,7 @@ import { z } from "zod";
 import cors from "cors";
 
 const app = express();
+const PORT = 3000;
 
 const prisma = new PrismaClient();
 
@@ -51,6 +52,22 @@ app.post("/signup", async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log("http://localhost:3000");
+app.post("/api/brains", async (req, res) => {
+    console.log(`req.came`)
+    try{
+        const response = await prisma.brain.findMany({
+            where:{
+                userId: 15
+            }
+        })
+        console.log(response)
+        res.json(response);
+    }catch(e){
+        console.log(e)
+        res.json({mess: "Error occured"})
+    }
+})
+
+app.listen(PORT, () => {
+    console.log(`http://localhost:${PORT}`);
 });
