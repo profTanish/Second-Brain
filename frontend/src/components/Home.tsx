@@ -9,7 +9,7 @@ export default function Home() {
             <SideBar  />
         </div>
         <div className="col-span-10">
-          <NavBar/>
+            <NavBar/>
             <Card/>
         </div>
     </div>

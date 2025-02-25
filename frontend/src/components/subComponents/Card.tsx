@@ -20,7 +20,7 @@ export default function Card() {
 
     return (
         <div className="inline-flex">
-            {brains && brains.map((items, index) => <div key={index} className={` bg-[#ffffff] ml-8 my-7 drop-shadow-xl px-4 h-full rounded-xl ${items.type === "twitter" ? "w-70" : "w-60"} pb-5`}>
+            {brains ? brains.map((items, index) => <div key={index} className={` bg-[#ffffff] ml-8 my-7 drop-shadow-xl px-4 h-full rounded-xl ${items.type === "twitter" ? "w-70" : "w-60"} pb-5`}>
                 <div className={`pt-3 flex ${items.type === "twitter" && "pb-0"} ${items.type === "normal" && "pb-2"} ${items.type === "youtube" && "pb-3"} `}>
                     <div className="pt-2  mb-0 flex gap-2 justify-start">
                         {items.type === "normal" && <IoDocumentTextOutline className={`fill-[#666a6e] size-5`} />}
@@ -76,7 +76,7 @@ export default function Card() {
                 <div className="text-xs pt-5 text-[#] -translate-y-3 text-opacity-70">
                     Added on {items.createdAt.substring(0, 10).replace("-", "/").replace("-", "/")}
                 </div>
-            </div>)}
+            </div>) : " "}
         </div>
     )
 }
