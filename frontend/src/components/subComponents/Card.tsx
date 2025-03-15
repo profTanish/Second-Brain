@@ -8,7 +8,27 @@ import axios from "axios";
 
 export default function Card() {
 
-    const [brains, setBrains] = useState()
+    type Brain = {
+        id: number,
+        type: string,
+        title: string,
+        subtitle: string,
+        discription: string,
+        link: string,
+        tags: string[],
+        createdAt: string,
+        updatedAt: string,
+        userId: number,
+        user: {
+            id: number,
+            username: string,
+            email: string,
+            password: string,
+            brains: Brain[]
+        }
+    }
+
+    const [brains, setBrains] = useState<Brain[]>()
 
     useEffect(() => {
         const usefetchData = async () => {
@@ -30,10 +50,10 @@ export default function Card() {
                             {items.title}
                         </div>
                         <div className="flex ml-5 justify-end gap-3 -translate-y-2  ">
-                            <button onClick={() => alert("share button clicked " + parseInt(index + 1))}>
+                            <button onClick={() => alert(`share button clicked ${index + 1}`)}>
                                 <BiSolidShareAlt className={"w-4 h-10 fill-[#666a6e]"} />
                             </button>
-                            <button onClick={() => alert("delete button clicked " + parseInt(index + 1))}>
+                            <button onClick={() => alert(`delete button clicked ${index + 1}`)}>
                                 <IoTrashOutline className={"w-4 h-10 fill-[#666a6e]"} />
                             </button>
                         </div>
